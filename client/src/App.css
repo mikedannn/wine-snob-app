@@ -68,7 +68,16 @@ nav {
   text-align: center;
   width: 40%;
   background-color: rgba(73, 8, 114, 0.206);
-  float: center;
+  margin: 0 auto;
+}
+
+.signUpForm {
+  padding-top: 65px;
+  padding-bottom: 200px;
+  text-align: center;
+  width: 40%;
+  background-color: rgba(73, 8, 114, 0.206);
+  margin: 0 auto;
 }
 
 input[type=text], select {
@@ -80,7 +89,7 @@ input[type=text], select {
   border-radius: 4px;
   box-sizing: border-box;
   background-color: white;
-  color: tan;
+  color: rgba(73, 8, 114, 0.206);
 }
 
 input[type=password], select {
@@ -91,7 +100,7 @@ input[type=password], select {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-  color: tan;
+  color: rgba(73, 8, 114, 0.206);
 }
 
 input[type=date], select {
@@ -102,7 +111,19 @@ input[type=date], select {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-  color: tan;
+  color: rgba(73, 8, 114, 0.206);
+}
+
+input[type=email], select {
+  width: 75%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: white;
+  color: rgba(73, 8, 114, 0.206);
 }
 
 input[type=select], select {
@@ -113,7 +134,7 @@ input[type=select], select {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-  color: tan;
+  color: rgba(73, 8, 114, 0.206);
 }
 
 input[type=submit] {
