@@ -4,9 +4,9 @@ import { UserContext } from "./context/user";
 
 const Home = () => {
 
-    const { user } = useContext(UserContext);
+    // const { user } = useContext(UserContext);
   
-    console.log(user)
+    // console.log(user)
     return (
         <div>
             <h1 className="welcome-header">Welcome to WineSnob, {'MikeDan'}!!</h1>

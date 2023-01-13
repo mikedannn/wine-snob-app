@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { login } from "./actions/auth";
 
 function LoginForm() {
 
@@ -7,10 +8,23 @@ function LoginForm() {
         password: ''
     })
 
+    const handleChange = e => {
+        setLoginInput({
+          ...loginInput,
+          [e.target.name]: e.target.value
+        })
+      }
+
+      const handleSubmit = e => {
+        e.preventDefault();
+    
+        login(loginInput)
+      }
+
     return (
         <div  className="loginForm">
           <h1>Login</h1>
-          <form>
+          <form onSubmit={ handleSubmit }>
             <div>
                 <label htmlFor="password">Username:</label>
                     <input 
@@ -19,6 +33,7 @@ function LoginForm() {
                         name="username"
                         className="username" 
                         value={loginInput.username}
+                        onChange={handleChange}
                         autoFocus={true}
                         required
                     >
@@ -33,6 +48,7 @@ function LoginForm() {
                         name="password" 
                         className='password'
                         value={loginInput.password} 
+                        onChange={handleChange}
                         required
                     >
                     </input>
