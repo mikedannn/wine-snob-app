@@ -6,3 +6,6 @@
         birth_date: Faker::Date.birthday(min_age: 18),
         email: Faker::Internet.free_email
     )
+end
+
+p "Done seeding"

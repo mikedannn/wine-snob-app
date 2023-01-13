@@ -28,11 +28,120 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+html {
+  background-color: rgba(231, 193, 251, 0.3)
 }
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 10vh;
+  background: rgba(73, 8, 114, 0.65);
+  color: white;
+}
+
+.nav-links {
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  text-decoration: none;
+}
+
+.homeLink {
+  color: white;
+  text-decoration: none;
+}
+
+.welcome-header {
+  color: rgba(73, 8, 114, 0.65);
+  text-align: center;
+  padding-top: 55px;
+  font-size: 60px;
+}
+
+.loginForm {
+  padding-top: 65px;
+  padding-bottom: 200px;
+  text-align: center;
+  width: 40%;
+  background-color: rgba(73, 8, 114, 0.206);
+  float: center;
+}
+
+input[type=text], select {
+  width: 75%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: white;
+  color: tan;
+}
+
+input[type=password], select {
+  width: 75%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: tan;
+}
+
+input[type=date], select {
+  width: 75%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: tan;
+}
+
+input[type=select], select {
+  width: 75%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: tan;
+}
+
+input[type=submit] {
+  width: 75%;
+  background-color: #ffffff;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+#formButton {
+  width: 75%;
+  background-color: rgba(181, 59, 247, 0.65); 
+  border: none;
+  color: white;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 22px;  
+  border-radius: 3px white;
+  margin: 4px 0;
+}
+
+
