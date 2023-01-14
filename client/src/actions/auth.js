@@ -26,6 +26,7 @@ export const login = async (details, handleCurrentUser) => {
     })
     const data = await resp.json();
     handleCurrentUser(data);
+    
 }
 
 export const getCurrentUser = async (handleCurrentUser) => {
