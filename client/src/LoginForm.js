@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { login } from "./actions/auth";
+import { useNavigate } from "react-router-dom";
 
 function LoginForm({ handleCurrentUser }) {
 
@@ -7,6 +8,11 @@ function LoginForm({ handleCurrentUser }) {
         username: '',
         password: ''
     })
+
+    let navigate = useNavigate();
+        const handleCreateUserClick = (e) => {
+        navigate('/');
+        };
 
     const handleChange = e => {
         setLoginInput({
@@ -17,8 +23,8 @@ function LoginForm({ handleCurrentUser }) {
 
       const handleSubmit = e => {
         e.preventDefault();
-    
         login(loginInput, handleCurrentUser)
+        handleCreateUserClick();
       }
 
     return (

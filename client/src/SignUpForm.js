@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { createAccount } from "./actions/auth";
+import { useNavigate } from "react-router-dom";
 
 function SignUpForm({ handleCurrentUser }) {
 
@@ -11,6 +12,11 @@ function SignUpForm({ handleCurrentUser }) {
         email: ''
     })
 
+    let navigate = useNavigate();
+        const handleCreateUserClick = (e) => {
+        navigate('/');
+    };
+
     const handleChange = e => {
         setNewUserInfo({
           ...newUserInfo,
@@ -21,6 +27,7 @@ function SignUpForm({ handleCurrentUser }) {
       const handleSubmit = e => {
         e.preventDefault();
         createAccount(newUserInfo, handleCurrentUser)
+        handleCreateUserClick();
       }
 
     return (

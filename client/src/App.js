@@ -38,7 +38,9 @@ function App() {
     <Router>
       <div className="App">
         <NavBar loggedIn={loggedIn} logOutCurrentUser={logOutCurrentUser}/>
-        <Home />
+        <UserProvider>
+          <Home currentUser={currentUser}/>
+        </UserProvider>
         <Routes>
           <Route exact path='/login' element={<LoginForm handleCurrentUser={handleCurrentUser}/>}/>
           <Route exact path='/signup' element={<SignUpForm handleCurrentUser={handleCurrentUser}/>}/>
