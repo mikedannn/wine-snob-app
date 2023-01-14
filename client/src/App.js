@@ -41,7 +41,7 @@ function App() {
         <Home />
         <Routes>
           <Route exact path='/login' element={<LoginForm handleCurrentUser={handleCurrentUser}/>}/>
-          <Route exact path='/signup' element={<SignUpForm/>}/>
+          <Route exact path='/signup' element={<SignUpForm handleCurrentUser={handleCurrentUser}/>}/>
         </Routes>
       </div>
     </Router>

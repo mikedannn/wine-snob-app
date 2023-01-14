@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { createAccount } from "./actions/auth";
 
-function SignUpForm() {
+function SignUpForm({ handleCurrentUser }) {
 
     const [newUserInfo, setNewUserInfo] = useState({
         name: '',
@@ -10,17 +11,33 @@ function SignUpForm() {
         email: ''
     })
 
+    const handleChange = e => {
+        setNewUserInfo({
+          ...newUserInfo,
+          [e.target.name]: e.target.value
+        })
+      }
+
+      const handleSubmit = e => {
+        e.preventDefault();
+        createAccount(newUserInfo, handleCurrentUser)
+      }
+
     return (
         <div className="signUpForm">
           <h1 >Create Account</h1>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div>
                 <label htmlFor="name">Name:</label>
                     <input 
                         type="text" 
                         id="name" 
                         name="name" 
-                        value={newUserInfo.name}>
+                        value={newUserInfo.name}
+                        onChange={handleChange}
+                        autoFocus={true}
+                        required
+                    >   
                     </input>
             </div> 
                 <br />
@@ -30,7 +47,10 @@ function SignUpForm() {
                         type="text" 
                         id="username" 
                         name="username" 
-                        value={newUserInfo.username}>
+                        value={newUserInfo.username}
+                        onChange={handleChange}
+                        required
+                    >
                     </input>
             </div> 
                 <br />
@@ -40,7 +60,10 @@ function SignUpForm() {
                         type="password" 
                         id="password" 
                         name="password" 
-                        value={newUserInfo.password}>
+                        value={newUserInfo.password}
+                        onChange={handleChange}
+                        required
+                    >
                     </input>
             </div>
                 <br />
@@ -50,7 +73,10 @@ function SignUpForm() {
                         type="date" 
                         id="birth_date" 
                         name="birth_date" 
-                        value={newUserInfo.birth_date}>
+                        value={newUserInfo.birth_date}
+                        onChange={handleChange}
+                        required
+                    >
                     </input>
             </div>
                 <br />
@@ -60,7 +86,10 @@ function SignUpForm() {
                         type="email" 
                         id="email" 
                         name="email" 
-                        value={newUserInfo.email}>
+                        value={newUserInfo.email}
+                        onChange={handleChange}
+                        required
+                    >
                     </input>
             </div>
                 <br />
