@@ -1,38 +1,49 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { logout } from "./actions/auth";
 
-const NavBar = () => {
+const NavBar = ({ loggedIn, logOutCurrentUser }) => {
 
 
     const NavStyle = {
         color: 'white'
     };
 
-  return (
-    <nav>
-        <h1><Link className='homeLink' to='/'>WineSnob</Link></h1>
-            <ul className='nav-links'>
-                <Link style={NavStyle} to='/'>
-                    About
-                </Link>
-                <Link style={NavStyle} to='/'>
-                    My Wines
-                </Link>
-                <Link style={NavStyle} to='/'>
-                    Search
-                </Link>
-                <Link style={NavStyle} to='/'>
-                    Log Out
-                </Link>
-            </ul>
-    </nav>
-  )
+    if(loggedIn) {
+        return (
+            <nav>
+                <h1><Link className='homeLink' to='/'>WineSnob</Link></h1>
+                    <ul className='nav-links'>
+                        <Link style={NavStyle} to='/about'>
+                            About
+                        </Link>
+                        <Link style={NavStyle} to='/'>
+                            My Wines
+                        </Link>
+                        <Link style={NavStyle} to='/search'>
+                            Search
+                        </Link>
+                        <Link style={NavStyle} to='/logout' onClick={(e) => logout(e, logOutCurrentUser)}>
+                            Log Out
+                        </Link>
+                    </ul>
+            </nav>
+        )
+    }
+
+        return (
+            <nav>
+                 <h1><Link className='homeLink' to='/'>WineSnob</Link></h1>
+                    <ul className='nav-links'>
+                        <Link style={NavStyle} to='/login'>
+                            Login
+                        </Link>
+                        <Link style={NavStyle} to='/signup'>
+                            Create Account
+                        </Link>
+                    </ul>
+            </nav>
+        )
 }
 
 export default NavBar
-
-
-{/* <li><NavLink to="/">Home</NavLink></li>
-      <li><NavLink to="/signup">Create Account</NavLink></li>
-      <li><NavLink to="/login">Login</NavLink></li>
-      <li><NavLink to="/logout">Logout</NavLink></li> */}

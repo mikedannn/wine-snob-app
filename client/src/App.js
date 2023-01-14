@@ -21,6 +21,13 @@ function App() {
     }
   }
 
+  const logOutCurrentUser = () => {
+    setCurrentUser(null); 
+    setLoggedIn(false);
+    setLoading(false);
+  }
+
+
   
   useEffect(() => {
     getCurrentUser(handleCurrentUser )
@@ -30,10 +37,10 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <NavBar/>
+        <NavBar loggedIn={loggedIn} logOutCurrentUser={logOutCurrentUser}/>
         <Home />
         <Routes>
-          <Route exact path='/login' element={<LoginForm/>}/>
+          <Route exact path='/login' element={<LoginForm handleCurrentUser={handleCurrentUser}/>}/>
           <Route exact path='/signup' element={<SignUpForm/>}/>
         </Routes>
       </div>

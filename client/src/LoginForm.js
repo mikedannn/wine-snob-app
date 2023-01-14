@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { login } from "./actions/auth";
 
-function LoginForm() {
+function LoginForm({ handleCurrentUser }) {
 
     const [loginInput, setLoginInput] = useState({
         username: '',
@@ -18,7 +18,7 @@ function LoginForm() {
       const handleSubmit = e => {
         e.preventDefault();
     
-        login(loginInput)
+        login(loginInput, handleCurrentUser)
       }
 
     return (

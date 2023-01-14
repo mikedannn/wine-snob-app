@@ -9,7 +9,7 @@ const Home = () => {
     // console.log(user)
     return (
         <div>
-            <h1 className="welcome-header">Welcome to WineSnob, {'MikeDan'}!!</h1>
+            <h1 className="welcome-header">Welcome to WineSnob!</h1>
         </div>
     )
 }
