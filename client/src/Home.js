@@ -1,17 +1,25 @@
-import React, { useContext } from "react";
-import { UserContext } from "./context/user";
+import React from "react";
+// import React, { useContext } from "react";
+// import { UserContext } from "./context/user";
 
 
 const Home = ({currentUser}) => {
 
     // const user = useContext(UserContext);
 
-    // console.log(user);
-
     if (currentUser) {
         return (
             <div>
-                <h1 className="welcome-header">Welcome to WineSnob, {currentUser.name}!</h1>
+                <div>
+                    <h1 className="welcome-header">Welcome to WineSnob, {currentUser.name}!</h1>
+                </div>
+
+                <div>
+                    <h2>My Wines:</h2>
+                    <div>
+                        {'Wines Listed'}
+                    </div>
+                </div>
             </div>
     ) 
     } else {

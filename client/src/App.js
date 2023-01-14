@@ -4,7 +4,7 @@ import About from "./About";
 import LoginForm from "./LoginForm";
 import NavBar from "./NavBar";
 import './App.css';
-import { UserProvider } from "./context/user";
+// import { UserProvider } from "./context/user";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import SignUpForm from "./SignUpForm";
 import { getCurrentUser } from "./actions/auth";

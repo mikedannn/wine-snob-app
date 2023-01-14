@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :reviews
+  resources :wines
   # resources :users, only: [:show, :create]
+  # resources :wines, only: [:show, :create]
 
   post "/signup", to: "users#create"
   get "/current-user", to: "users#get_current_user"

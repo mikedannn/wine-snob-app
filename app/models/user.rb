@@ -7,5 +7,7 @@ class User < ApplicationRecord
     validates :birth_date, presence: true
     validates :email, presence: true, uniqueness: true
 
+    has_many :reviews
+    has_many :wines, through: :reviews
 
 end
