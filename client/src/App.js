@@ -13,6 +13,7 @@ import { getCurrentUser } from "./actions/auth";
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [loggedIn, setLoggedIn] = useState(false);
+  const [userWines, setUserWines] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const handleCurrentUser = (user) => {
@@ -20,6 +21,7 @@ function App() {
       setCurrentUser(user);
       setLoggedIn(true);
       setLoading(false);
+      fetchUserWines();
     }
   }
 
@@ -33,13 +35,33 @@ function App() {
     getCurrentUser(handleCurrentUser )
   }, [])
 
+  const fetchUserWines = () => {
+    fetch('/wines')
+    .then(res => res.json())
+    .then(data => {
+      setUserWines(data)
+    })
+  }
+
+  // const addWine = (wine) => {
+  //   fetch('/wines', {
+  //     method: 'POST',
+  //     headers: { 'Content-Type': 'application/json'},
+  //     body: JSON.stringify(wine)
+  //   })
+  //   .then(res => res.json())
+  //   .then(data => {
+  //     setUserWines([...userWines, data])
+  //   })
+  // }
+
   
   return (
     <Router>
       <div className="App">
         <NavBar loggedIn={loggedIn} logOutCurrentUser={logOutCurrentUser}/>
         <Routes>
-          <Route exact path='/' element={<Home currentUser={currentUser}/>}/>
+          <Route exact path='/' element={<Home currentUser={currentUser} userWines={userWines}/>}/>
           <Route exact path='/login' element={<LoginForm handleCurrentUser={handleCurrentUser}/>}/>
           <Route exact path='/signup' element={<SignUpForm handleCurrentUser={handleCurrentUser}/>}/>
           <Route exact path='/wines' element={<Wines/>}/>

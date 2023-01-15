@@ -1,11 +1,14 @@
 import React from "react";
+import Wines from "./Wines";
 // import React, { useContext } from "react";
 // import { UserContext } from "./context/user";
 
 
-const Home = ({currentUser}) => {
+const Home = ({currentUser, userWines}) => {
 
     // const user = useContext(UserContext);
+
+    console.log(userWines)
 
     if (currentUser) {
         return (
@@ -17,7 +20,7 @@ const Home = ({currentUser}) => {
                 <div>
                     <h2>My Wines:</h2>
                     <div>
-                        {'Wines Listed'}
+                        <Wines wines={userWines}/>
                     </div>
                 </div>
             </div>
