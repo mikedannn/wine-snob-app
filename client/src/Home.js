@@ -1,14 +1,8 @@
 import React from "react";
 import Wines from "./Wines";
-// import React, { useContext } from "react";
-// import { UserContext } from "./context/user";
 
 
 const Home = ({currentUser, userWines, setUserWines}) => {
-
-    // const user = useContext(UserContext);
-
-    console.log(userWines)
 
     if (currentUser) {
         return (

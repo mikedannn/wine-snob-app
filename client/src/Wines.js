@@ -12,7 +12,6 @@ const Wines = ({userWines, setUserWines}) => {
 
     return (
         <div>
-            <h2>WINES</h2>
             <div className='listOfWines'>
                 {winesList}
             </div>

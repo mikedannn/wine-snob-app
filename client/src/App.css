@@ -165,4 +165,30 @@ input[type=submit]:hover {
   margin: 4px 0;
 }
 
+.listOfWines {
+  padding-top: 25px;
+  padding-left: 230px;
+}
+
+.wineCard {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  border: rgba(73, 8, 114, 0.206);
+  background-color: rgba(73, 8, 114, 0.206);
+  padding-bottom: 30px;
+  padding-top: 30px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 15px;
+  backdrop-filter: blur(14px);
+}
+
+.wineImage {
+  width: 100%;
+  float: center;
+  width:  250px;
+  height: 250px;
+  object-fit: cover;
+}
+
 

@@ -2,15 +2,18 @@ import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
 
+const newWine = {
+    varietal: '',
+    color: '',
+    winery: '',
+    year: '',
+    image_url: ''
+}
+
+
 function WineForm({ userWines, setUserWines}) {
 
-    const [wine, setWine] = useState({
-        varietal: '',
-        color: '',
-        winery: '',
-        year: '',
-        image_url: ''
-    })
+    const [wine, setWine] = useState(newWine);
 
     let navigate = useNavigate();
         const handleCreateUserClick = (e) => {
@@ -40,6 +43,7 @@ function WineForm({ userWines, setUserWines}) {
         e.preventDefault();
         addWine(wine);
         handleCreateUserClick();
+        setWine(newWine);
       }
 
     return (
