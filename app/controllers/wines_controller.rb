@@ -1,6 +1,7 @@
 class WinesController < ApplicationController
     before_action :authorize
 
+
     def index
         wines = current_user.wines
         render json: wines
@@ -20,7 +21,7 @@ class WinesController < ApplicationController
         if wine
             render json: wine
         else
-            render json: { error: "Not Found" }, status: :unauthorized
+            render json: { error: "Not Found" }, status: :unauthorized 
         end
     end
 

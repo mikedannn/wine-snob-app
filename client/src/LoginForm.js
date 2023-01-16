@@ -12,7 +12,7 @@ function LoginForm({ handleCurrentUser }) {
     let navigate = useNavigate();
         const handleCreateUserClick = (e) => {
         navigate('/');
-        };
+    };
 
     const handleChange = e => {
         setLoginInput({

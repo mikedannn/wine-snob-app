@@ -17,7 +17,7 @@ const NavBar = ({ loggedIn, logOutCurrentUser }) => {
                         <Link style={NavStyle} to='/about'>
                             About
                         </Link>
-                        <Link style={NavStyle} to='/wines'>
+                        <Link style={NavStyle} to='/'>
                             My Wines
                         </Link>
                         <Link style={NavStyle} to='/search'>

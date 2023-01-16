@@ -4,7 +4,7 @@ import Wines from "./Wines";
 // import { UserContext } from "./context/user";
 
 
-const Home = ({currentUser, userWines}) => {
+const Home = ({currentUser, userWines, setUserWines}) => {
 
     // const user = useContext(UserContext);
 
@@ -20,7 +20,7 @@ const Home = ({currentUser, userWines}) => {
                 <div>
                     <h2>My Wines:</h2>
                     <div>
-                        <Wines wines={userWines}/>
+                        <Wines userWines={userWines} setUserWines={setUserWines}/>
                     </div>
                 </div>
             </div>

@@ -61,7 +61,7 @@ function App() {
       <div className="App">
         <NavBar loggedIn={loggedIn} logOutCurrentUser={logOutCurrentUser}/>
         <Routes>
-          <Route exact path='/' element={<Home currentUser={currentUser} userWines={userWines}/>}/>
+          <Route exact path='/' element={<Home currentUser={currentUser} userWines={userWines} setUserWines={setUserWines}/>}/>
           <Route exact path='/login' element={<LoginForm handleCurrentUser={handleCurrentUser}/>}/>
           <Route exact path='/signup' element={<SignUpForm handleCurrentUser={handleCurrentUser}/>}/>
           <Route exact path='/wines' element={<Wines/>}/>
