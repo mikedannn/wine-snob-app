@@ -167,7 +167,7 @@ input[type=submit]:hover {
 
 .listOfWines {
   display: grid;
-  grid-template-columns: repeat(3, 4fr);
+  grid-template-columns: repeat(4, 4fr);
   grid-auto-rows: auto;
   padding-top: 25px;
   float: center;
