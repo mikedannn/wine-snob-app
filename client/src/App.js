@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import Home from "./Home";
 import About from "./About";
 import Wines from "./Wines";
+import WineForm from "./WineForm";
 import LoginForm from "./LoginForm";
 import NavBar from "./NavBar";
 import './App.css';
@@ -43,18 +44,6 @@ function App() {
     })
   }
 
-  // const addWine = (wine) => {
-  //   fetch('/wines', {
-  //     method: 'POST',
-  //     headers: { 'Content-Type': 'application/json'},
-  //     body: JSON.stringify(wine)
-  //   })
-  //   .then(res => res.json())
-  //   .then(data => {
-  //     setUserWines([...userWines, data])
-  //   })
-  // }
-
   
   return (
     <Router>
@@ -64,7 +53,7 @@ function App() {
           <Route exact path='/' element={<Home currentUser={currentUser} userWines={userWines} setUserWines={setUserWines}/>}/>
           <Route exact path='/login' element={<LoginForm handleCurrentUser={handleCurrentUser}/>}/>
           <Route exact path='/signup' element={<SignUpForm handleCurrentUser={handleCurrentUser}/>}/>
-          <Route exact path='/wines' element={<Wines/>}/>
+          {/* <Route exact path='/addwine' element={<WineForm/>}/> */}
           <Route exact path='/about' element={<About/>}/>
         </Routes>
       </div>

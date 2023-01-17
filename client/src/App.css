@@ -165,12 +165,27 @@ input[type=submit]:hover {
   margin: 4px 0;
 }
 
+.wineHeading {
+  float: left;
+  text-align: left;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+}
+
 .listOfWines {
   display: grid;
   grid-template-columns: repeat(4, 4fr);
   grid-auto-rows: auto;
   padding-top: 25px;
   float: center;
+}
+
+.wineContainer {
+  background-color: rgba(128, 0, 128, 0.284);
+  border-radius: 25px;
+  padding: 20px; 
+  width: 100%;
+  height: 100%; 
 }
 
 .wineCard {
@@ -180,6 +195,7 @@ input[type=submit]:hover {
   border: rgba(73, 8, 114, 0.206);
   background-color: rgba(73, 8, 114, 0.206);
   padding-bottom: 30px;
+  border-radius: 25px;
   padding-top: 30px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin: 15px;

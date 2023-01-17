@@ -58,7 +58,6 @@ function WineForm({ userWines, setUserWines}) {
                         name="varietal" 
                         value={wine.varietal}
                         onChange={handleChange}
-                        autoFocus={true}
                         required
                     >   
                     </input>

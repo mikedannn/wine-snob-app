@@ -10,10 +10,9 @@ const Home = ({currentUser, userWines, setUserWines}) => {
                 <div>
                     <h1 className="welcome-header">Welcome to WineSnob, {currentUser.name}!</h1>
                 </div>
-
                 <div>
-                    <h2>My Wines:</h2>
-                    <div>
+                    <h2 className="wineHeading">Wine Portfolio:</h2>
+                    <div className="wineContainer">
                         <Wines userWines={userWines} setUserWines={setUserWines}/>
                     </div>
                 </div>
