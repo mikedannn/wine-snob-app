@@ -33,7 +33,7 @@ function App() {
   }
 
   useEffect(() => {
-    getCurrentUser(handleCurrentUser )
+    getCurrentUser(handleCurrentUser)
   }, [])
 
   const fetchUserWines = () => {

@@ -5,21 +5,38 @@ import WineForm from "./WineForm";
 
 const Wines = ({userWines, setUserWines}) => {
 
+    const [clicked, setClicked] = useState(false);
+
     const winesList = userWines.map((wine) => <WineCard
-        key={wine.id}
+        key={wine.index}
         wine={wine}
     />)
 
-    return (
+    if(!clicked) {
+        return (
         <div>
+            <div>
+                <button className='addWineButton' onClick={(e) => setClicked(true)}>Add Wine to Profile</button>
+            </div>
             <div className='listOfWines'>
                 {winesList}
             </div>
-            <div>
-                <WineForm userWines={userWines} setUserWines={setUserWines}/>
-            </div>
         </div>
-    )
+        )
+    }
+    else {
+        return (
+            <div>
+                <div>
+                    <WineForm userWines={userWines} setUserWines={setUserWines} setClicked={setClicked}/>
+                </div>
+                <div className='listOfWines'>
+                    {winesList}
+                </div>
+            </div>
+            )
+
+    }
 }
 
 export default Wines

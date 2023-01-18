@@ -11,7 +11,7 @@ const newWine = {
 }
 
 
-function WineForm({ userWines, setUserWines}) {
+function WineForm({ userWines, setUserWines, setClicked }) {
 
     const [wine, setWine] = useState(newWine);
 
@@ -44,6 +44,7 @@ function WineForm({ userWines, setUserWines}) {
         addWine(wine);
         handleCreateUserClick();
         setWine(newWine);
+        setClicked(false);
       }
 
     return (
@@ -73,6 +74,7 @@ function WineForm({ userWines, setUserWines}) {
                         onChange={handleChange}
                         required
                     >
+                        <option key={null} value={''}> </option>
                         <option key={'Red'} value={'Red'}>Red</option>
                         <option key={'White'} value={'White'}>White</option>
                         <option key={'Pink'} value={'Pink'}>Pink</option>
