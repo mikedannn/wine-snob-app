@@ -3,6 +3,7 @@ import Home from "./Home";
 import About from "./About";
 import Wines from "./Wines";
 import WineForm from "./WineForm";
+import ReviewForm from "./ReviewForm";
 import LoginForm from "./LoginForm";
 import NavBar from "./NavBar";
 import './App.css';
@@ -15,6 +16,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [loggedIn, setLoggedIn] = useState(false);
   const [userWines, setUserWines] = useState([]);
+  const [userReviews, setUserReviews] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const handleCurrentUser = (user) => {
@@ -44,6 +46,14 @@ function App() {
     })
   }
 
+  const fetchUserReviews = () => {
+    fetch('/reviews')
+    .then(res => res.json())
+    .then(data => {
+      setUserReviews(data)
+    })
+  }
+
   
   return (
     <Router>
@@ -54,6 +64,7 @@ function App() {
           <Route exact path='/login' element={<LoginForm handleCurrentUser={handleCurrentUser}/>}/>
           <Route exact path='/signup' element={<SignUpForm handleCurrentUser={handleCurrentUser}/>}/>
           {/* <Route exact path='/addwine' element={<WineForm/>}/> */}
+          <Route exact path= '/wines/:id/review' element={<ReviewForm userReviews={userReviews} setUserReviews={setUserReviews}/>}/>
           <Route exact path='/about' element={<About/>}/>
         </Routes>
       </div>

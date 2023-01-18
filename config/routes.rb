@@ -1,7 +1,28 @@
 Rails.application.routes.draw do
 
-  resources :reviews
-  resources :wines
+ 
+  resources :wines, except: [:delete] do 
+
+    #
+    # GET /wines                   -> SHOW
+    # POST /wines                   -> CREATE
+    # PUT /wines/:wine_id/reviews/:id        -> UPDATE
+    # DELETE /wines/:wine_id/reviews/:id         -> SHOW
+    #
+
+    resources :reviews
+    #
+    # GET /wines/:wine_id/reviews         -> SHOW
+    # POST /wines/:wine_id/reviews         -> CREATE
+    # PUT /wines/:wine_id/reviews/:id        -> UPDATE
+    # DELETE /wines/:wine_id/reviews/:id         -> SHOW
+    #
+  
+  end
+
+  # resources :reviews
+
+
   # resources :users, only: [:show, :create]
   # resources :wines, only: [:show, :create]
 
