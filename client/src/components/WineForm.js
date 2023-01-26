@@ -1,50 +1,74 @@
 import React, { useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
+// import { useNavigate } from "react-router-dom";
 
+// const newWine = {
+//     varietal: '',
+//     color: '',
+//     winery: '',
+//     year: '',
+//     image_url: ''
+// }
 
-const newWine = {
-    varietal: '',
-    color: '',
-    winery: '',
-    year: '',
-    image_url: ''
-}
+function WineForm({ addNewWine }) {
 
+    const [errors, setErrors] = useState([])
+    const [formData, setFormData] = useState({
+        varietal: '',
+        color: '',
+        winery: '',
+        year: '',
+        image_url: ''        
+    })
 
-function WineForm({ userWines, setUserWines, setClicked }) {
+    // const [wine, setWine] = useState(newWine);
 
-    const [wine, setWine] = useState(newWine);
+    // let navigate = useNavigate();
+    //     const handleCreateUserClick = (e) => {
+    //     navigate('/');
+    // };
 
-    let navigate = useNavigate();
-        const handleCreateUserClick = (e) => {
-        navigate('/');
-    };
+    // const handleChange = e => {
+    //     setWine({
+    //       ...wine,
+    //       [e.target.name]: e.target.value
+    //     })
+    //   }
 
-    const handleChange = e => {
-        setWine({
-          ...wine,
-          [e.target.name]: e.target.value
-        })
-      }
-
-      const addWine = (wine) => {
-        fetch('/wines', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json'},
-          body: JSON.stringify(wine)
-        })
-        .then(res => res.json())
-        .then(data => {
-          setUserWines([...userWines, data])
-        })
-      }
+    //   const addWine = (wine) => {
+    //     fetch('/wines', {
+    //       method: 'POST',
+    //       headers: { 'Content-Type': 'application/json'},
+    //       body: JSON.stringify(wine)
+    //     })
+    //     .then(res => res.json())
+    //     .then(data => {
+    //       setUserWines([...userWines, data])
+    //     })
+    //   }
 
       const handleSubmit = e => {
         e.preventDefault();
-        addWine(wine);
-        handleCreateUserClick();
-        setWine(newWine);
-        setClicked(false);
+        setErrors([]);
+        fetch('/wines', {
+            method: 'POST',
+            headers: { 'Content-Type':'application/json'},
+            body: JSON.stringify(formData)
+          }).then((r) => {
+            if(r.ok){
+              addNewWine(formData)
+              setFormData({varietal: "", color: "", winery: "", year: "",image_url: ""})
+            } else{
+              r.json().then((err) => setErrors(err.errors));
+            }
+          })
+      }
+
+      const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+        })
       }
 
     return (
@@ -121,14 +145,18 @@ function WineForm({ userWines, setUserWines, setClicked }) {
                     >
                     </input>
             </div>
+            <div className="errors-container">
+                {
+                errors.map((err) => (
+                <span id="error-message" key={err}>{`Invalid: ${err}`}</span>
+                ))
+                }
+            </div>
                 <br />
                 <input id='formButton' type="submit" value="Add Wine" />
           </form>
         </div>
     )
-
-        
-
 }
 
-export default WineForm
+export default WineForm;

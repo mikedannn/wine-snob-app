@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import WineCard from './WineCard';
 import {Route, useParams} from 'react-router-dom';
-import WineForm from "./WineForm";
+import WineForm from "../components/WineForm";
 
 const Wines = ({userWines, setUserWines}) => {
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { createAccount } from "./actions/auth";
+import { createAccount } from "../actions/auth";
 import { useNavigate } from "react-router-dom";
 
 function SignUpForm({ handleCurrentUser }) {

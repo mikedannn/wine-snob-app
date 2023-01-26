@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { login } from "./actions/auth";
+import { login } from "../actions/auth";
 import { useNavigate } from "react-router-dom";
 
 function LoginForm({ handleCurrentUser }) {

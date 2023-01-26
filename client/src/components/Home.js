@@ -1,5 +1,5 @@
 import React from "react";
-import Wines from "./Wines";
+import Wines from "../pages/Wines";
 
 
 const Home = ({currentUser, userWines, setUserWines}) => {
