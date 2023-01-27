@@ -11,17 +11,14 @@ function Login({ onLogin }){
     const [showLogin, setShowLogin] = useState(true)
 
     return(
-        <Card style={{ width: '25rem', paddingTop: '1rem' }} bg='light' className="mx-auto mt-5 p-4">
-            <Card.Title>
-                { showLogin ? "Welcome back" : "Create an account"}
-            </Card.Title>
+        <Card>
                 {
                 showLogin ? <LoginForm onLogin={onLogin} /> : <SignUpForm onLogin={onLogin} />
                 }       
-        
+
             <Button 
                 onClick={() => setShowLogin(!showLogin)}
-                variant="outline-dark"
+                className="formButton"
                 >
                 { showLogin ? "or sign up" : "or log in"}
             </Button>

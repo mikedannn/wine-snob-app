@@ -19,13 +19,13 @@ function WineShowPage({ user }){
 
     return(
     <div id="wine-container">
-        <h2 style={{color: "white"}}>{wineData.varietal} | {wineData.winery} | {wineData.year}</h2>
+        <h2 style={{color: "black"}}>{wineData.varietal} | {wineData.winery} | {wineData.year}</h2>
         <div id="image-container">
-            <div className="featured-image">
+            <div className="image">
                 <img src={wineData.image_url} alt="wine image"/>
             </div>
         </div>
-        <div id="information-container">
+        <div id="information">
             <Tab.Container id="tab-container" defaultActiveKey="#details" >
                     <ListGroup id="list-group" horizontal>
                         <ListGroup.Item action href="#details" >
@@ -37,12 +37,12 @@ function WineShowPage({ user }){
                     </ListGroup>
                     <Tab.Content id="list-content">
                         <Tab.Pane eventKey="#details">
-                                    <b>Description</b>
+                                    {/* <b>Description</b> */}
                                     {/* <p>{wineData.content}</p> */}
                                    <br/>
                                     <div className="additional-info">
                                         <div>
-                                            <p>Price per week</p>
+                                            {/* <p>Price per week</p> */}
                                             {/* <h5>${wineData.price}</h5> */}
                                         </div>
                                         <div>
