@@ -2,6 +2,11 @@ class WinesController < ApplicationController
     # before_action :authorize
 
     def index
+        wines = current_user.wines
+        render json: wines
+    end
+
+    def all_wines
         render json: Wine.all
     end
 
@@ -45,9 +50,9 @@ class WinesController < ApplicationController
 
     private
 
-    # def current_user
-    #     User.find_by(id: session[:user_id])
-    # end
+    def current_user
+        User.find_by(id: session[:user_id])
+    end
 
     def wine_params
         params.permit(:varietal, :color, :winery, :year, :image_url)

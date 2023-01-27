@@ -155,22 +155,18 @@ html {
   z-index: 1;
 }
 
+.homeLink {
+  color: white;
+  text-decoration: none;
+}
+
 nav {
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: right;
   min-height: 10vh;
   background: rgba(73, 8, 114, 0.65);
   color: white;
-}
-
-.nav-links {
-  width: 40%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  list-style: none;
-  text-decoration: none;
 }
 
 .wines-container{

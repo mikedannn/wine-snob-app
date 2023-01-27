@@ -1,11 +1,8 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
-import Button from "react-bootstrap/esm/Button";
+import Button from "react-bootstrap/Button";
 import Navbar from 'react-bootstrap/Navbar';
 // import WineLogo from '../wine-logo.svg';
-
-// import { Link } from 'react-router-dom';
-// import { logout } from "../actions/auth";
 
 function NavBar({ user, setUser }) {
 
@@ -108,4 +105,4 @@ function NavBar({ user, setUser }) {
 //         )
 // }
 
-export default NavBar
+export default NavBar;

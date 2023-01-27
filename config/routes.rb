@@ -11,5 +11,7 @@ Rails.application.routes.draw do
 
   get "/wines/:id/reviews", to: "wines#reviews"
 
+  get "/wines/all", to: "wines#all_wines"
+
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end
