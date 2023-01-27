@@ -1,25 +1,13 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import './App.css';
 import { Route, Routes } from "react-router-dom";
 
-import LoginForm from "./pages/LoginForm";
+import Login from "./pages/Login";
 import Wines from "./pages/Wines";
-import WineCard from "./pages/WineCard";
+import WineShowPage from "./pages/WineShowPage";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import Account from "./pages/Account";
-
-// import Home from "./Home";
-// import About from "./About";
-// import Wines from "./Wines";
-// import WineForm from "./WineForm";
-// import ReviewForm from "./ReviewForm";
-// import LoginForm from "./LoginForm";
-// import NavBar from "./NavBar";
-// // import { UserProvider } from "./context/user";
-// import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-// import SignUpForm from "./SignUpForm";
-// import { getCurrentUser } from "./actions/auth";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -35,41 +23,6 @@ function App() {
     });
   }, []);
 
-  // const handleCurrentUser = (user) => {
-  //   if(user.username) {
-  //     setCurrentUser(user);
-  //     setLoggedIn(true);
-  //     setLoading(false);
-  //     fetchUserWines();
-  //   }
-  // }
-
-  // const logOutCurrentUser = () => {
-  //   setCurrentUser(null); 
-  //   setLoggedIn(false);
-  //   setLoading(false);
-  // }
-
-  // useEffect(() => {
-  //   getCurrentUser(handleCurrentUser)
-  // }, [])
-
-  // const fetchUserWines = () => {
-  //   fetch('/wines')
-  //   .then(res => res.json())
-  //   .then(data => {
-  //     setUserWines(data)
-  //   })
-  // }
-
-  // const fetchUserReviews = () => {
-  //   fetch('/reviews')
-  //   .then(res => res.json())
-  //   .then(data => {
-  //     setUserReviews(data)
-  //   })
-  // }
-
   
   return (
     <div className="App" style={{paddingTop: "120px"}}>
@@ -81,7 +34,7 @@ function App() {
         />
       </div>
         
-        { !user ? <LoginForm onLogin={setUser} /> : 
+        { !user ? <Login onLogin={setUser} /> : 
         
         <Routes>
           <Route 
@@ -94,12 +47,14 @@ function App() {
           />
           <Route 
             path="/wines/:id" 
-            element={<WineCard user={user}/>} 
-          />
-            
+            element={<WineShowPage user={user}/>} 
+          />   
         </Routes>
+
         }
+
         {user ? <Footer /> : null}
+
     </div>
   );
 

@@ -6,7 +6,6 @@ class Wine < ApplicationRecord
     validates :year, presence: true
     validates :image_url, presence: true
 
-    belongs_to :user
 
     has_many :reviews
     has_many :users, through: :reviews 

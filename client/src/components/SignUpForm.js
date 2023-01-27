@@ -1,47 +1,41 @@
 import React, { useState } from 'react';
-import { createAccount } from "../actions/auth";
-import { useNavigate } from "react-router-dom";
 
-function SignUpForm({ handleCurrentUser }) {
+function SignUpForm({ onLogin }) {
+    const [name, setName] = useState("")
+    const [username, setUsername] = useState("")
+    const [password, setPassword] = useState("")
+    const [passwordConfirmation, setPasswordConfirmation] = useState("")
+    const [birth_date, setBirthdate] = useState("")
+    const [email, setEmail] = useState("")
+    const [errors, setErrors] = useState([])
 
-    const [newUserInfo, setNewUserInfo] = useState({
-        name: '',
-        username: '',
-        password: '',
-        birth_date: '',
-        email: ''
-    })
-
-    let navigate = useNavigate();
-        const handleCreateUserClick = (e) => {
-        navigate('/');
-    };
-
-    const handleChange = e => {
-        setNewUserInfo({
-          ...newUserInfo,
-          [e.target.name]: e.target.value
-        })
-      }
-
-      const handleSubmit = e => {
-        e.preventDefault();
-        createAccount(newUserInfo, handleCurrentUser)
-        handleCreateUserClick();
-      }
+    const handleSignup = (e) => {
+        e.preventDefault()
+        fetch('/signup', {
+            method: "POST",
+            headers: { "Content-Type":"application/json"},
+            body: JSON.stringify({ name, username, password, passwordConfirmation, birth_date, email})
+        }).then((r) => {
+            if (r.ok) {
+              r.json().then((user) => onLogin(user));
+            } else {
+              r.json().then((err) => setErrors(err.errors));
+            }
+          });
+    }
 
     return (
         <div className="signUpForm">
           <h1 >Create Account</h1>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSignup}>
             <div>
                 <label htmlFor="name">Name:</label>
                     <input 
                         type="text" 
                         id="name" 
                         name="name" 
-                        value={newUserInfo.name}
-                        onChange={handleChange}
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
                         autoFocus={true}
                         required
                     >   
@@ -54,8 +48,8 @@ function SignUpForm({ handleCurrentUser }) {
                         type="text" 
                         id="username" 
                         name="username" 
-                        value={newUserInfo.username}
-                        onChange={handleChange}
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
                         required
                     >
                     </input>
@@ -67,8 +61,21 @@ function SignUpForm({ handleCurrentUser }) {
                         type="password" 
                         id="password" 
                         name="password" 
-                        value={newUserInfo.password}
-                        onChange={handleChange}
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    >
+                    </input>
+            </div>
+                <br />
+            <div>
+                <label htmlFor="confirm-password">Confirm Password: </label>
+                    <input 
+                        type="password" 
+                        id="password_confirmation" 
+                        name="password_confirmation" 
+                        value={passwordConfirmation}
+                        onChange={(e) => setPasswordConfirmation(e.target.value)}
                         required
                     >
                     </input>
@@ -80,8 +87,8 @@ function SignUpForm({ handleCurrentUser }) {
                         type="date" 
                         id="birth_date" 
                         name="birth_date" 
-                        value={newUserInfo.birth_date}
-                        onChange={handleChange}
+                        value={birth_date}
+                        onChange={(e) => setBirthdate(e.target.value)}
                         required
                     >
                     </input>
@@ -93,12 +100,21 @@ function SignUpForm({ handleCurrentUser }) {
                         type="email" 
                         id="email" 
                         name="email" 
-                        value={newUserInfo.email}
-                        onChange={handleChange}
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                         required
                     >
                     </input>
             </div>
+
+            {
+            errors ? 
+            <div className="errors-container">
+            {errors.map((err) => (
+                    <span id="error-message" key={err}>{`Invalid: ${err}`}</span>))}
+                </div> 
+            : null 
+            }
                 <br />
                 <input id='formButton' type="submit" value="Create Account" />
           </form>

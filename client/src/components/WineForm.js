@@ -81,7 +81,7 @@ function WineForm({ addNewWine }) {
                         type="text" 
                         id="varietal" 
                         name="varietal" 
-                        value={wine.varietal}
+                        value={formData.varietal}
                         onChange={handleChange}
                         required
                     >   
@@ -94,7 +94,7 @@ function WineForm({ addNewWine }) {
                         className="customSelect"
                         placeholder="Select Color"
                         name="color" 
-                        value={wine.color}
+                        value={formData.color}
                         onChange={handleChange}
                         required
                     >
@@ -113,7 +113,7 @@ function WineForm({ addNewWine }) {
                         type="text" 
                         id="winery" 
                         name="winery" 
-                        value={wine.winery}
+                        value={formData.winery}
                         onChange={handleChange}
                         required
                     >
@@ -126,7 +126,7 @@ function WineForm({ addNewWine }) {
                         type="text" 
                         id="year" 
                         name="year" 
-                        value={wine.year}
+                        value={formData.year}
                         onChange={handleChange}
                         required
                     >
@@ -139,7 +139,7 @@ function WineForm({ addNewWine }) {
                         type="text" 
                         id="image_url" 
                         name="image_url" 
-                        value={wine.image_url}
+                        value={formData.image_url}
                         onChange={handleChange}
                         required
                     >
