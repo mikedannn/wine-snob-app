@@ -1,14 +1,5 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
-// import { useNavigate } from "react-router-dom";
-
-// const newWine = {
-//     varietal: '',
-//     color: '',
-//     winery: '',
-//     year: '',
-//     image_url: ''
-// }
 
 function WineForm({ addNewWine }) {
 
@@ -20,32 +11,6 @@ function WineForm({ addNewWine }) {
         year: '',
         image_url: ''        
     })
-
-    // const [wine, setWine] = useState(newWine);
-
-    // let navigate = useNavigate();
-    //     const handleCreateUserClick = (e) => {
-    //     navigate('/');
-    // };
-
-    // const handleChange = e => {
-    //     setWine({
-    //       ...wine,
-    //       [e.target.name]: e.target.value
-    //     })
-    //   }
-
-    //   const addWine = (wine) => {
-    //     fetch('/wines', {
-    //       method: 'POST',
-    //       headers: { 'Content-Type': 'application/json'},
-    //       body: JSON.stringify(wine)
-    //     })
-    //     .then(res => res.json())
-    //     .then(data => {
-    //       setUserWines([...userWines, data])
-    //     })
-    //   }
 
       const handleSubmit = e => {
         e.preventDefault();
