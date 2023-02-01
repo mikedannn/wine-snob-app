@@ -52,12 +52,21 @@ function Review({review, user, handleReviewEdit, handleReviewDestroy}){
             {(canEdit && review.user.id === user.id) ? 
                 <Form className="can-edit-review">
                     <Form.Label htmlFor="rating"></Form.Label>
+                    Rating:
                     <Form.Control
                         as="textarea"
                         rows="5"
                         name="rating"
                         value={rating}
                         onChange={(e) => setRating(e.target.value)}
+                        />
+                    Review:
+                    <Form.Control
+                        as="textarea"
+                        rows="5"
+                        name="content"
+                        value={content}
+                        onChange={(e) => setContent(e.target.value)}
                         />
                 </Form>
             : <p>{review.content}</p>}

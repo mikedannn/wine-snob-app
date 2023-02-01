@@ -10,7 +10,7 @@ function UserReviews({reviews}){
                 className="user-review"
                 style={{textAlign: "left"}}
                 key={review.id}
-                href={`/spaces/${review.space_id}`}
+                href={`/wines/${review.wine_id}`}
                 >
                 <b>{review.rating}</b>
                 <p>{review.content}...</p>

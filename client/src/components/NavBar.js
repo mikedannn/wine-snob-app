@@ -23,11 +23,11 @@ function NavBar({ user, setUser }) {
                     <Navbar.Text id="current-user-name">
                        <b>{`@${user.username}`}</b>
                     </Navbar.Text>
-                    <Button variant="info" className="ms-3" href="/account">
+                    <Button variant="info" className="accountButton" href="/account">
                         My Account
                     </Button>
                     <Button 
-                        className="ms-2 mt-3 mb-3" variant="outline-info" 
+                        className="logoutButton" variant="outline-info" 
                         onClick={handleLogout}
                         >Logout
                     </Button>
@@ -40,17 +40,10 @@ function NavBar({ user, setUser }) {
         <div>
             <Navbar bg="dark" variant="dark">
                 <Container>
-                    <Navbar.Brand href="/">
-                    {/* <img
-                        id='nav-logo'
-                        alt="wine logo"
-                        src={LightLogo}
-                        width="120"
-                        className="d-inline-block align-top"
-                    /> */}
-                    <p>WineSnob</p>
+                    <Navbar.Brand href="/" className='wineSnobLink'>
+                        <p>WineSnob</p>
                     </Navbar.Brand>
-                <Navbar.Collapse className="justify-content-end">
+                <Navbar.Collapse>
                     {renderNavbarButtons()}
                 </Navbar.Collapse>
                 </Container>

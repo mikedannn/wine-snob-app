@@ -129,6 +129,42 @@ input[type=submit]:hover {
   margin: 4px 0;
 }
 
+.accountButton {
+  width: 20%;
+  background-color: rgba(181, 59, 247, 0.8); 
+  border: none;
+  color: white;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 22px;  
+  border-radius: 3px white;
+  margin: 4px 0;
+  float: right;
+}
+
+.logoutButton {
+  width: 20%;
+  background-color: rgba(181, 59, 247, 0.8); 
+  border: none;
+  color: white;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 22px;  
+  border-radius: 3px white;
+  margin: 4px 0;
+  float: right;
+}
+
+.wineSnobLink {
+  float: left;
+  width: 20%;
+  font-size: 18px; 
+  color: white;
+  text-decoration: none;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -151,8 +187,10 @@ html {
 #navbar{
   position: fixed;
   top: 0;
+  justify-content: space-around;
   width: 100%;
   z-index: 1;
+  background: rgba(73, 8, 114, 0.65);
 }
 
 .homeLink {
@@ -160,14 +198,14 @@ html {
   text-decoration: none;
 }
 
-nav {
+/* nav {
   display: flex;
   justify-content: space-around;
   align-items: right;
   min-height: 10vh;
   background: rgba(73, 8, 114, 0.65);
   color: white;
-}
+} */
 
 .wines-container{
   display: flex;

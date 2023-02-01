@@ -8,7 +8,6 @@ class User < ApplicationRecord
     validates :email, presence: true, uniqueness: true
 
     has_many :reviews, dependent: :destroy
-    # has_many :wines, dependent: :destroy
     has_many :wines, through: :reviews
 
 end

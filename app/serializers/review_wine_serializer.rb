@@ -1,3 +1,3 @@
 class ReviewWineSerializer < ActiveModel::Serializer
-    attributes :varietal, :winery, :year
+    attributes :id
 end

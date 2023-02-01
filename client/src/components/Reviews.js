@@ -30,9 +30,8 @@ function Reviews({user}){
                 setReviews((reviews) => {
                     let updatedReviews = reviews.map(review => {
                         if(review.id === reviewId){
-                            console.log(review);
-                        //    review.content = content 
-                        //     review.rating = rating
+                            review.content = content 
+                            review.rating = rating
                         }
                         return review;
                     })
