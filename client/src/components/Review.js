@@ -11,7 +11,7 @@ function Review({review, user, handleReviewEdit, handleReviewDestroy}){
     return(
         <div className="review">
             <div className="review-card-header">
-            <span className="review-rating">{`"${review.rating}"`}</span>
+            <span className="review-rating">{`${review.rating}`}</span>
 
             {user.id === review.user.id ?
                 <div className="review-button-container">
@@ -22,7 +22,7 @@ function Review({review, user, handleReviewEdit, handleReviewDestroy}){
                             onClick={() => {
                                 setCanEdit(!canEdit)
                                 }}
-                            > edit
+                            > Edit
                         </Button>
                     : 
                         <Button
@@ -31,7 +31,7 @@ function Review({review, user, handleReviewEdit, handleReviewDestroy}){
                                 setCanEdit(!canEdit)
                                 handleReviewEdit(review.id, rating, content)
                                 }}
-                            > save edits
+                            > Save
                         </Button>
                     }
 
@@ -55,7 +55,7 @@ function Review({review, user, handleReviewEdit, handleReviewDestroy}){
                     Rating:
                     <Form.Control
                         as="textarea"
-                        rows="5"
+                        rows="2"
                         name="rating"
                         value={rating}
                         onChange={(e) => setRating(e.target.value)}
@@ -63,7 +63,7 @@ function Review({review, user, handleReviewEdit, handleReviewDestroy}){
                     Review:
                     <Form.Control
                         as="textarea"
-                        rows="5"
+                        rows="2"
                         name="content"
                         value={content}
                         onChange={(e) => setContent(e.target.value)}
