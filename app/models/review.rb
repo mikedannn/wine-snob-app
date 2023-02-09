@@ -6,4 +6,6 @@ class Review < ApplicationRecord
   belongs_to :user
   belongs_to :wine
 
+  # inverse_of: :reviews, optional: true
+
 end
