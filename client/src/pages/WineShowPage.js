@@ -28,29 +28,11 @@ function WineShowPage({ user }){
         <div id="information">
             <Tab.Container id="tab-container" defaultActiveKey="#details" >
                     <ListGroup id="list-group" horizontal>
-                        <ListGroup.Item action href="#details" >
-                            Details
-                        </ListGroup.Item>
                         <ListGroup.Item action href="#reviews">
                             Reviews
                         </ListGroup.Item>
                     </ListGroup>
                     <Tab.Content id="list-content">
-                        <Tab.Pane eventKey="#details">
-                                    {/* <b>Description</b> */}
-                                    {/* <p>{wineData.content}</p> */}
-                                   <br/>
-                                    <div className="additional-info">
-                                        <div>
-                                            {/* <p>Price per week</p> */}
-                                            {/* <h5>${wineData.price}</h5> */}
-                                        </div>
-                                        <div>
-                                            <p>Rating</p>
-                                            {/* <h5>★{wineData.rating}</h5> */}
-                                        </div>
-                                    </div>
-                        </Tab.Pane>
                         <Tab.Pane eventKey="#reviews">
                             <Reviews user={user} />
                         </Tab.Pane>

@@ -6,7 +6,6 @@ import Form from 'react-bootstrap/Form';
 function Review({review, user, handleReviewEdit, handleReviewDestroy}){
     const [canEdit, setCanEdit ] = useState(false)
     const [content, setContent] = useState(review.content)
-    const [rating, setRating] = useState(review.rating)
 
     return(
         <div className="review">
@@ -29,7 +28,7 @@ function Review({review, user, handleReviewEdit, handleReviewDestroy}){
                             variant="warning" className="me-2"
                             onClick={() => {
                                 setCanEdit(!canEdit)
-                                handleReviewEdit(review.id, rating, content)
+                                handleReviewEdit(review.id, content)
                                 }}
                             > Save
                         </Button>
@@ -51,27 +50,16 @@ function Review({review, user, handleReviewEdit, handleReviewDestroy}){
 
             {(canEdit && review.user.id === user.id) ? 
                 <Form className="can-edit-review">
-                    <Form.Label htmlFor="rating"></Form.Label>
-                    Rating:
-                    <Form.Control
-                        as="textarea"
-                        rows="2"
-                        name="rating"
-                        value={rating}
-                        onChange={(e) => setRating(e.target.value)}
-                        />
                     Review:
                     <Form.Control
                         as="textarea"
-                        rows="2"
+                        rows="1"
                         name="content"
                         value={content}
                         onChange={(e) => setContent(e.target.value)}
                         />
                 </Form>
             : <p>{review.content}</p>}
-                        
-
 
             <span className="review-username">
                 <b>{`@${review.user.username}`}</b>

@@ -9,7 +9,7 @@ function WineForm({ addNewWine }) {
         color: '',
         winery: '',
         year: '',
-        image_url: ''        
+        image_url: ''       
     })
 
       const handleSubmit = e => {
@@ -22,7 +22,7 @@ function WineForm({ addNewWine }) {
           }).then((r) => {
             if(r.ok){
               addNewWine(formData)
-              setFormData({varietal: "", color: "", winery: "", year: "",image_url: ""})
+              setFormData({varietal: "", color: "", winery: "", year: "", image_url: ""})
             } else{
               r.json().then((err) => setErrors(err.errors));
             }
@@ -110,6 +110,7 @@ function WineForm({ addNewWine }) {
                     >
                     </input>
             </div>
+
             <div className="errors-container">
                 {
                 errors.map((err) => (

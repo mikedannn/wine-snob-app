@@ -20,18 +20,17 @@ function Reviews({user}){
         setReviews([data, ...reviews])
     }
 
-    const handleReviewEdit = (reviewId, content, rating) => {
+    const handleReviewEdit = (reviewId, content) => {
         fetch(`/reviews/${reviewId}`, {
             method: "PATCH",
             headers: {'Content-Type':'application/json'},
-            body: JSON.stringify({content: content, rating: rating})
+            body: JSON.stringify({content: content})
         }).then(res => {
             if(res.ok){
                 setReviews((reviews) => {
                     let updatedReviews = reviews.map(review => {
                         if(review.id === reviewId){
-                            review.content = content 
-                            review.rating = rating
+                            review.content = content
                         }
                         return review;
                     })
