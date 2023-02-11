@@ -4,8 +4,6 @@ class Review < ApplicationRecord
   validates :content, length: { maximum: 250 }, presence: true
 
   belongs_to :user
-  belongs_to :wine
-
-  # inverse_of: :reviews, optional: true
+  belongs_to :wine, optional: true
 
 end

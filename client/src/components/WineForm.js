@@ -9,7 +9,7 @@ function WineForm({ addNewWine }) {
         color: '',
         winery: '',
         year: '',
-        image_url: ''       
+        image_url: ''   
     })
 
       const handleSubmit = e => {
@@ -24,6 +24,7 @@ function WineForm({ addNewWine }) {
               addNewWine(formData)
               setFormData({varietal: "", color: "", winery: "", year: "", image_url: ""})
             } else{
+                console.log('in the else clause')
               r.json().then((err) => setErrors(err.errors));
             }
           })
@@ -110,6 +111,32 @@ function WineForm({ addNewWine }) {
                     >
                     </input>
             </div>
+                {/* <br />
+            <div>
+                <label htmlFor="rating">Rating: </label>
+                    <input 
+                        type="integer" 
+                        id="rating" 
+                        name="rating" 
+                        value={formData.reviews_attributes.rating}
+                        onChange={handleChange}
+                        required
+                    >
+                    </input>
+            </div>
+                <br />
+            <div>
+                <label htmlFor="content">Review: </label>
+                    <input 
+                        type="text" 
+                        id="content" 
+                        name="content" 
+                        value={formData.reviews_attributes.content}
+                        onChange={handleChange}
+                        required
+                    >
+                    </input>
+            </div> */}
 
             <div className="errors-container">
                 {

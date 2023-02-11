@@ -6,7 +6,8 @@ class WinesController < ApplicationController
     end
 
     def all_wines
-        render json: Wine.all
+        wines = Wine.all
+        render json: wines
     end
 
     def show

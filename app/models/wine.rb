@@ -7,8 +7,8 @@ class Wine < ApplicationRecord
     validates :image_url, presence: true
 
 
-    has_many :reviews
+    has_many :reviews, dependent: :destroy
+    # has_many :reviews, allow_nil: true
     has_many :users, through: :reviews 
 
-    # accepts_nested_attributes_for :reviews, reject_if: proc { |attributes| attributes['rating'].blank? }
 end
