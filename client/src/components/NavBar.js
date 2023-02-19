@@ -24,7 +24,7 @@ function NavBar({ user, setUser }) {
                        <b>{`@${user.username}`}</b>
                     </Navbar.Text>
                     <Button variant="info" className="accountButton" href="/account">
-                        My Account
+                        Add New Review
                     </Button>
                     <Button 
                         className="logoutButton" variant="outline-info" 

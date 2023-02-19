@@ -16,7 +16,7 @@ class WinesController < ApplicationController
     end
 
     def create
-        wine = @current_user.wines.create!(new_wine_params)
+        wine = Wine.create!(wine_params)
         render json: wine, status: :created
     end
 
@@ -29,10 +29,6 @@ class WinesController < ApplicationController
 
     def wine_params
         params.permit(:varietal, :color, :winery, :year, :image_url)
-    end
-
-    def new_wine_params
-        params.require(:wine).permit(:varietal, :color, :winery, :year, :image_url)
     end
 
 end

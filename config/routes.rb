@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get "/wines/all", to: "wines#all_wines"
+
   resources :wines, only: [:index, :show, :create]
   resources :reviews, only: [:index, :create, :update, :destroy]
 
@@ -10,8 +12,6 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
 
   get "/wines/:id/reviews", to: "wines#reviews"
-
-  get "/wines/all", to: "wines#all_wines"
 
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end
