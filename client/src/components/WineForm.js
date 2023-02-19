@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 
 function WineForm({ addNewWine }) {
@@ -11,6 +12,11 @@ function WineForm({ addNewWine }) {
         year: '',
         image_url: ''   
     })
+
+    let navigate = useNavigate();
+    const handleSubmitWineClick = (e) => {
+      navigate(`/account`);
+    };
 
       const handleSubmit = e => {
         e.preventDefault();
@@ -28,6 +34,7 @@ function WineForm({ addNewWine }) {
               r.json().then((err) => setErrors(err.errors));
             }
           })
+          handleSubmitWineClick();
       }
 
       const handleChange = (e) => {

@@ -5,10 +5,12 @@ import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
 
-function NewReviewForm({allWines}) {
+
+function NewReviewForm() {
   const [ userReviewRating, setUserReviewRating ] = useState("")
   const [ userReviewContent, setUserReviewContent ] = useState("")
   const [ userReviewWineId, setUserReviewWineId ] = useState(null)
+  const [allWines, setAllWines] = useState([]);
   const [ reviews, setReviews ] = useState([]);
 
   useEffect(() => {
@@ -17,9 +19,20 @@ function NewReviewForm({allWines}) {
         .then(setReviews);
   }, []);
 
+  useEffect(() => {
+      fetch("/wines/all")
+        .then((response) => response.json())
+        .then(setAllWines)
+    }, []);
+
   let navigate = useNavigate();
+
     const handleSubmitReviewClick = (e) => {
       navigate(`/`);
+    };
+    
+    const handleAddWineClick = (e) => {
+        navigate(`wines/new`)
     };
 
   const handleFormSubmit = (e) => {
@@ -62,6 +75,9 @@ function NewReviewForm({allWines}) {
                     </option>
                     ))}
                 </select>
+                <button id="tripButton" onClick={handleAddWineClick}>
+                    Can't Find Wine? Add New Wine!
+                </button>      
                 </label>
                   <FloatingLabel
                       controlId="floatingRating"

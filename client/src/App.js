@@ -6,11 +6,13 @@ import Login from "./pages/Login";
 import Wines from "./pages/Wines";
 import WineShowPage from "./pages/WineShowPage";
 import NavBar from "./components/NavBar";
+import WineForm from "./components/WineForm";
 import Footer from "./components/Footer";
 import Account from "./pages/Account";
 
 function App() {
   const [user, setUser] = useState(null);
+  const [allWines, setAllWines] = useState([]);
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -22,6 +24,17 @@ function App() {
       }
     });
   }, []);
+
+  useEffect(() => {
+    fetch("/wines/all")
+      .then((response) => response.json())
+      .then(setAllWines)
+  }, []);
+
+  const addNewWine = (formData) => {
+    setAllWines((allWines) => [formData, ...allWines])
+  }
+
 
   
   return (
@@ -45,6 +58,10 @@ function App() {
             path="/account" 
             element={<Account />} 
           />
+          <Route 
+            path="account/wines/new" 
+            element={<WineForm addNewWine={addNewWine}/>} 
+          />   
           <Route 
             path="/wines/:id" 
             element={<WineShowPage user={user}/>} 
