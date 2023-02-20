@@ -17,5 +17,4 @@ class UsersController < ApplicationController
         params.permit(:name, :username, :password, :password_confirmation, :birth_date, :email)
     end
 
-
 end
