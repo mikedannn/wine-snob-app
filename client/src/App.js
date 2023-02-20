@@ -74,21 +74,6 @@ function App() {
 
     </div>
   );
-
-  //   <Router>
-  //     <div className="App">
-  //       <NavBar loggedIn={loggedIn} logOutCurrentUser={logOutCurrentUser}/>
-  //       <Routes>
-  //         <Route exact path='/' element={<Home currentUser={currentUser} userWines={userWines} setUserWines={setUserWines}/>}/>
-  //         <Route exact path='/login' element={<LoginForm handleCurrentUser={handleCurrentUser}/>}/>
-  //         <Route exact path='/signup' element={<SignUpForm handleCurrentUser={handleCurrentUser}/>}/>
-  //         {/* <Route exact path='/addwine' element={<WineForm/>}/> */}
-  //         <Route exact path= '/wines/:id/review' element={<ReviewForm userReviews={userReviews} setUserReviews={setUserReviews}/>}/>
-  //         <Route exact path='/about' element={<About/>}/>
-  //       </Routes>
-  //     </div>
-  //   </Router>
-  // );
 }
 
 export default App;

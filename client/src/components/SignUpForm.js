@@ -121,8 +121,6 @@ function SignUpForm({ onLogin }) {
         </div>
     )
 
-        
-
 }
 
 export default SignUpForm

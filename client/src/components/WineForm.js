@@ -16,6 +16,7 @@ function WineForm({ addNewWine }) {
     let navigate = useNavigate();
     const handleSubmitWineClick = (e) => {
       navigate(`/account`);
+      window.location.reload(false);
     };
 
       const handleSubmit = e => {
@@ -118,32 +119,6 @@ function WineForm({ addNewWine }) {
                     >
                     </input>
             </div>
-                {/* <br />
-            <div>
-                <label htmlFor="rating">Rating: </label>
-                    <input 
-                        type="integer" 
-                        id="rating" 
-                        name="rating" 
-                        value={formData.reviews_attributes.rating}
-                        onChange={handleChange}
-                        required
-                    >
-                    </input>
-            </div>
-                <br />
-            <div>
-                <label htmlFor="content">Review: </label>
-                    <input 
-                        type="text" 
-                        id="content" 
-                        name="content" 
-                        value={formData.reviews_attributes.content}
-                        onChange={handleChange}
-                        required
-                    >
-                    </input>
-            </div> */}
 
             <div className="errors-container">
                 {

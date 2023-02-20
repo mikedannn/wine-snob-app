@@ -8,7 +8,6 @@ class Wine < ApplicationRecord
 
 
     has_many :reviews, dependent: :destroy
-    # has_many :reviews, allow_nil: true
     has_many :users, through: :reviews 
 
 end

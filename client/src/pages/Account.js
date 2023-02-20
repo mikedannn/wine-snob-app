@@ -6,7 +6,6 @@ import UserWines from "../components/UserWines";
 function Account(){
     const [reviews, setReviews] = useState([]);
     const [wines, setWines] = useState([]);
-    // const [allWines, setAllWines] = useState([]);
 
     useEffect(() => {
     fetch("/me").then((r) => {
@@ -18,12 +17,6 @@ function Account(){
       }
     });
   }, []);
-
-    // useEffect(() => {
-    //   fetch("/wines/all")
-    //     .then((response) => response.json())
-    //     .then(setAllWines)
-    // }, []);
     
 
     return(
