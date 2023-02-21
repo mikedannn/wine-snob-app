@@ -13,6 +13,7 @@ function Account(){
         r.json().then((user) => {
             setWines(user.wines)
             setReviews(user.reviews)
+            console.log(user)
         });
       }
     });

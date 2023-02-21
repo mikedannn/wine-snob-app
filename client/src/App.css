@@ -13,11 +13,28 @@
   }
 }
 
+.welcomeHeader {
+  color: rgba(73, 8, 114, 0.65);
+  text-align: center;
+  padding-top: 45px;
+  padding-bottom: 25px;
+  font-size: 60px;
+}
+
+.wines-header {
+  color: rgba(73, 8, 114, 0.65);
+  float: center;
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 50px;
+}
+
 .loginForm {
   padding-top: 55px;
   padding-bottom: 65px;
   text-align: center;
-  width: 75%;
+  width: 50%;
   background-color: rgba(73, 8, 114, 0.206);
   margin: 0 auto;
 }
@@ -201,7 +218,7 @@ html {
 .wines-container{
   display: flex;
   justify-content: center;
-  flex-wrap: wrap-reverse;
+  flex-wrap: wrap;
 }
 
 .review-wine-container{
@@ -256,22 +273,26 @@ html {
   width: 300px;
   margin: 0.75rem;
   text-align: start;
+  background-color: rgba(73, 8, 114, 0.123);
 }
 
 article.wine-card-info{
   padding: 10px;
   display: flex;
   justify-content: space-between;
+  text-align: center;
 }
 
 .wine-card-info h2, .wine-card-info h3{
   color: black;
-  font-size: 0.9rem;
+  font-size: 15px;
+  text-align: center;
 }
 
 .wine-card-info h3{
   font-weight: 400;
   opacity: 65%;
+  text-align: center;
 }
 
 div#wine-container{

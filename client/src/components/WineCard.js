@@ -13,7 +13,7 @@ function WineCard({wine}) {
             onClick={() => navigate(`/wines/${id}`)}
             >
                 <Card border="dark">
-                    <Image src={image_url} style={{ aspectRatio: "1/1", height: "100%", width: "undefined", objectFit: "cover" }} rounded/>
+                    <Image src={image_url} style={{ aspectRatio: "1/1", height: "300px", width: "250px", objectFit: "cover", textAlign: "center" }} rounded/>
                 </Card>
                 <article className="wine-card-info">
                     <div>
@@ -21,9 +21,6 @@ function WineCard({wine}) {
                         <h3>{color}</h3>
                         <h2>{year}</h2>
                     </div>
-                    {/* <div>
-                        <h2 id="star-rating">{rating ? '★'+ rating : "★ unrated"}</h2>
-                    </div> */}
             </article>
         </div>
     )

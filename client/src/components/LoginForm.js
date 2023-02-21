@@ -1,7 +1,4 @@
 import React, { useState } from 'react';
-// import Button from 'react-bootstrap/Button';
-// import Form from 'react-bootstrap/Form';
-// import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
 
 function LoginForm({ onLogin }) {
@@ -25,6 +22,10 @@ function LoginForm({ onLogin }) {
     }
 
     return (
+        <div>
+            <div className="welcomeHeader">
+                 Welcome to WineSnob!
+            </div>  
         <div  className="loginForm">
           <h1>Login</h1>
           <form onSubmit={handleLogin}>
@@ -66,6 +67,7 @@ function LoginForm({ onLogin }) {
             <br />
                 <input id="formButton" type="submit" value="Login" />
           </form>
+        </div>
         </div>
     );
 
