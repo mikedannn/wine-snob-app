@@ -10,7 +10,6 @@ class WinesController < ApplicationController
         render json: wines
     end
 
-    ## eliminate show route
     def show
         wine = Wine.find_by(id: params[:id])
         render json: wine, status: :ok
@@ -21,7 +20,6 @@ class WinesController < ApplicationController
         render json: wine, status: :created
     end
 
-    ## not needed
     def reviews
         reviews = Wine.find_by(id: params[:id]).reviews
         render json: reviews, status: :ok
