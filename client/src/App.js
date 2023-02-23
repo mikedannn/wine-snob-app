@@ -12,31 +12,13 @@ import Account from "./pages/Account";
 
 function App() {
   const [user, setUser] = useState(null);
-  const [allWines, setAllWines] = useState([]);
 
   useEffect(() => {
-    fetch("/me").then((r) => {
-      if (r.ok) {
-        r.json().then((user) => setUser({
-          id: user.id,
-          username: user.username
-        }));
-      }
-    });
+    fetch("/me")
+        .then((response) => response.json())
+        .then(data => setUser(data))
   }, []);
 
-  useEffect(() => {
-    fetch("/wines/all")
-      .then((response) => response.json())
-      .then(setAllWines)
-  }, []);
-
-  const addNewWine = (formData) => {
-    setAllWines((allWines) => [formData, ...allWines])
-  }
-
-
-  
   return (
     <div className="App" style={{paddingTop: "120px"}}>
 
@@ -52,15 +34,15 @@ function App() {
         <Routes>
           <Route 
             path="/" 
-            element={<Wines />} 
+            element={<Wines user={user}/>} 
           />
           <Route 
             path="/account" 
-            element={<Account />} 
+            element={<Account user={user}/>} 
           />
           <Route 
             path="account/wines/new" 
-            element={<WineForm addNewWine={addNewWine}/>} 
+            element={<WineForm/>} 
           />   
           <Route 
             path="/wines/:id" 

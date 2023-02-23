@@ -8,12 +8,11 @@ function UserReviews({reviews}){
             <Button 
                 variant="outline-secondary"
                 className="user-review"
-                style={{textAlign: "left"}}
+                style={{textAlign: "center", textDecoration: "none"}}
                 key={review.id}
                 href={`/wines/${review.wine_id}`}
                 >
-                <b>{review.rating}</b>
-                <p>{review.content}...</p>
+                <p>{review.content}</p>
             </Button>
         )
     })

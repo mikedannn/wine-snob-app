@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
 
+    ## check if even used
     def index
         render json: Review.all, status: :ok
     end
@@ -10,13 +11,13 @@ class ReviewsController < ApplicationController
     end
 
     def update
-        review = Review.find_by(id: params[:id])
+        review = @current_user.reviews.find_by(id: params[:id])
         review.update(review_params)
         render json: review, status: :accepted
     end
 
     def destroy
-        review = Review.find_by(id: params[:id])
+        review = @current_user.reviews.find_by(id: params[:id])
         review.destroy
         head :no_content
     end
@@ -24,7 +25,7 @@ class ReviewsController < ApplicationController
     private
 
     def review_params
-        params.permit(:rating, :content, :user_id, :wine_id)
+        params.permit(:rating, :content, :wine_id)
     end
 
 end

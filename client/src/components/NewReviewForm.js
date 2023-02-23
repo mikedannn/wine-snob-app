@@ -9,31 +9,25 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 function NewReviewForm() {
   const [ userReviewRating, setUserReviewRating ] = useState("")
   const [ userReviewContent, setUserReviewContent ] = useState("")
-  const [ userReviewWineId, setUserReviewWineId ] = useState(null)
+  const [ userReviewWineId, setUserReviewWineId ] = useState()
   const [allWines, setAllWines] = useState([]);
-  const [ reviews, setReviews ] = useState([]);
-
-  useEffect(() => {
-    fetch(`/reviews`)
-        .then((r) => r.json())
-        .then(setReviews);
-  }, []);
-
+ 
   useEffect(() => {
       fetch("/wines/all")
         .then((response) => response.json())
-        .then(setAllWines)
+        .then(data => setAllWines(data))
     }, []);
 
   let navigate = useNavigate();
 
-    const handleSubmitReviewClick = (e) => {
-      navigate(`/`);
-    };
+  const handleSubmitReviewClick = (e) => {
+    navigate(`/wines/${userReviewWineId}`);
+    window.location.reload(false);
+  };
     
-    const handleAddWineClick = (e) => {
-        navigate(`wines/new`)
-    };
+  const handleAddWineClick = (e) => {
+    navigate(`wines/new`)
+  };
 
   const handleFormSubmit = (e) => {
     e.preventDefault()
@@ -47,10 +41,7 @@ function NewReviewForm() {
         })
     })
         .then((r) => r.json())
-        .then((data) => {
-            setReviews((reviews) => [data, ...reviews]);
-            handleSubmitReviewClick();
-        })
+        .then(handleSubmitReviewClick())
       }
 
 

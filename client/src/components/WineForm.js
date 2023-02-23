@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
 
-function WineForm({ addNewWine }) {
+function WineForm() {
 
     const [errors, setErrors] = useState([])
     const [formData, setFormData] = useState({
@@ -28,10 +28,10 @@ function WineForm({ addNewWine }) {
             body: JSON.stringify(formData)
           }).then((r) => {
             if(r.ok){
-              addNewWine(formData)
-              setFormData({varietal: "", color: "", winery: "", year: "", image_url: ""})
+                r.json()
+                .then(console.log(r))
+                setFormData({varietal: "", color: "", winery: "", year: "", image_url: ""})
             } else{
-                console.log('in the else clause')
               r.json().then((err) => setErrors(err.errors));
             }
           })

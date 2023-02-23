@@ -8,13 +8,11 @@ function Reviews({user}){
     const params = useParams()
     const [reviews, setReviews] = useState([])
     
-
     useEffect(() => {
         fetch(`/wines/${params.id}/reviews`)
             .then((r) => r.json())
-            .then(setReviews);
+            .then(data => setReviews(data));
       }, [params.id]);
-
 
     const updateReviews = (data) => {
         setReviews([data, ...reviews])
