@@ -1,6 +1,5 @@
 class ReviewsController < ApplicationController
 
-    ## check if even used
     def index
         render json: Review.all, status: :ok
     end

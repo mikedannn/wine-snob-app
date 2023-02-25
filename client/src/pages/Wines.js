@@ -17,7 +17,7 @@ function Wines({user}) {
             </div>
             <div className="wines-container">
                {
-                userWines.map((wine) => {
+                userWines?.map((wine) => {
                     return(<WineCard key={wine.id} wine={wine}/>);
                 })
                }
