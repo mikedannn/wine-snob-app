@@ -17,35 +17,35 @@ This web application was created to allow users to come together over a shared l
 
 The user is able to use the Login Form upon opening the application. 
 
-![](/public/LoginScreen.png)
+![](/client/public/LoginScreen.png)
 
 
 If the user does not have an account, they can sign up for one easily. 
 
-![](/public/SignUpScreen.png)
+![](/client/public/SignUpScreen.png)
 
 
 User is directed to their main wines page after login. They can easily see each wine they have previously reviewed. 
 
-![](/public/WinesPage.png)
+![](/client/public/WinesPage.png)
 
 
 Upon clicking one of "My Wines," the user is directed to that specific wine page where they can see their review and the reviews others have left. 
 
-![](/public/WineShowPage.png)
+![](/client/public/WineShowPage.png)
 
 
 Edit, Delete, or leave a new review under the wine. 
 
-![](/public/EditDelete.png)
+![](/client/public/EditDelete.png)
 
 Add a new review using the Review Form on the left side of the screen. Click into any past reviews or wines on the right side of the screen.  
 
-![](/public/ReviewForm.png)
+![](/client/public/ReviewForm.png)
 
 Don't see the wine you're looking for? Add a new wine to the application using the Wine Form. 
 
-![](/public/WineForm.png)
+![](/client/public/WineForm.png)
 
 Thank you for using the app!
 
