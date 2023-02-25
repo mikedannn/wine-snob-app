@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import WineCard from "../components/WineCard";
 
 function Wines({user}) {
+
+    const [userWines, setUserWines] = useState([]);
+
+    useEffect(() => {
+        setUserWines(user.wines)
+    }, [user.wines])
 
 
     return(
@@ -11,7 +17,7 @@ function Wines({user}) {
             </div>
             <div className="wines-container">
                {
-                user.wines.map((wine) => {
+                userWines.map((wine) => {
                     return(<WineCard key={wine.id} wine={wine}/>);
                 })
                }

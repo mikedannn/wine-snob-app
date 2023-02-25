@@ -22,7 +22,6 @@ function NewReviewForm() {
 
   const handleSubmitReviewClick = (e) => {
     navigate(`/wines/${userReviewWineId}`);
-    window.location.reload(false);
   };
     
   const handleAddWineClick = (e) => {

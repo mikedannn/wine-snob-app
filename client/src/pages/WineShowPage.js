@@ -20,7 +20,7 @@ function WineShowPage({ user }){
         <h2 style={{color: "black"}}>{wineData.varietal} | {wineData.winery} | {wineData.year}</h2>
         <div id="image-container">
             <div className="image">
-                <img src={wineData.image_url} alt="wine image"/>
+                <img src={wineData.image_url} alt="wine"/>
             </div>
         </div>
         <div id="information">

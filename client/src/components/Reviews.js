@@ -51,6 +51,7 @@ function Reviews({user}){
                 )
             }
         })
+        // handleDeleteClick();
     }
 
     
