@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import WineCard from "../components/WineCard";
 
-function Wines({user}) {
+function Wines({wines}) {
 
     const [userWines, setUserWines] = useState([]);
 
     useEffect(() => {
-        setUserWines(user.wines)
-    }, [user.wines])
+        setUserWines(wines)
+    }, [wines])
 
 
     return(

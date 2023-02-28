@@ -38,7 +38,7 @@ function App() {
         <Routes>
           <Route 
             path="/" 
-            element={<Wines user={user}/>} 
+            element={<Wines wines={user.wines}/>} 
           />
           <Route 
             path="/account" 
