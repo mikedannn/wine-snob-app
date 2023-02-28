@@ -16,13 +16,12 @@ function WineForm() {
     let navigate = useNavigate();
     const handleSubmitWineClick = (e) => {
       navigate(`/account`);
-      window.location.reload(false);
     };
 
       const handleSubmit = e => {
         e.preventDefault();
         setErrors([]);
-        fetch('/wines', {
+        fetch('/account/wines/new', {
             method: 'POST',
             headers: { 'Content-Type':'application/json'},
             body: JSON.stringify(formData)

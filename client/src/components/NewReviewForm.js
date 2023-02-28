@@ -16,13 +16,12 @@ function NewReviewForm() {
       fetch("/wines/all")
         .then((response) => response.json())
         .then(data => setAllWines(data))
-    }, []);
+    }, [allWines]);
 
   let navigate = useNavigate();
 
   const handleSubmitReviewClick = (e) => {
     navigate(`/wines/${userReviewWineId}`);
-    window.location.reload(false);
   };
     
   const handleAddWineClick = (e) => {

@@ -22,6 +22,7 @@ function App() {
         });
   }, []);
 
+
   return (
     <div className="App" style={{paddingTop: "120px"}}>
 
@@ -44,7 +45,7 @@ function App() {
             element={<Account user={user}/>} 
           />
           <Route 
-            path="account/wines/new" 
+            path="/account/wines/new" 
             element={<WineForm/>} 
           />   
           <Route 
