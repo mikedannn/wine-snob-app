@@ -10,6 +10,7 @@ function NewReviewForm() {
   const [ userReviewRating, setUserReviewRating ] = useState("")
   const [ userReviewContent, setUserReviewContent ] = useState("")
   const [ userReviewWineId, setUserReviewWineId ] = useState()
+  const [error, setError] = useState("")
   const [allWines, setAllWines] = useState([]);
  
   useEffect(() => {
@@ -39,9 +40,14 @@ function NewReviewForm() {
             wine_id: userReviewWineId
         })
     })
-        .then((r) => r.json())
-        .then(handleSubmitReviewClick())
-      }
+        .then(r => {
+          if(r.ok) {
+            r.json().then(handleSubmitReviewClick())
+          } else {
+            r.json().then((err) => setError(`${Object.keys(err)}: ${Object.values(err)}`))
+          }
+        })
+    }
 
 
     return(
@@ -94,6 +100,14 @@ function NewReviewForm() {
                           onChange={(e) => setUserReviewContent(e.target.value)}
                           />
                   </FloatingLabel>
+
+                  {
+                  error ? 
+                  <div className="errors-container">
+                      <span id="error-message">{error}</span>
+                  </div> 
+                  : null 
+                  }
                   
                   <Button 
                       variant="dark" 
