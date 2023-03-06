@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
+  get "/wines/search/:keyword", to: "wines#search"
 
   get "/wines/all", to: "wines#all_wines"
   post "/account/wines/new", to: "wines#create"
 
-  get "/wines/search/:keyword", to: "wines#search"
-
+  
   resources :wines, only: [:index, :show]
   resources :reviews, only: [:index, :create, :update, :destroy]
 

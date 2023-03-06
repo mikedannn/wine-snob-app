@@ -25,10 +25,10 @@ class WinesController < ApplicationController
         render json: reviews, status: :ok
     end
 
-    # def search
-    #     byebug
-    #     wines = Wine.includes(:reviews).where(reviews: {})
-    # end
+    def search
+        wines = Wine.all.filter {|wine| wine.reviews.detect {|review| review.content.include?(params[:keyword])}}
+        render json: wines, status: :ok
+    end
 
     private
 
